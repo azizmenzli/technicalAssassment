@@ -1,54 +1,78 @@
-Game App
+-Game App:
+
 A web application that displays top games by playtime and player count based on the platform and genre selected by the user.
 
-Features
+-Features:
+
 User can select a platform and a genre from dropdown menus.
 User can click the "Search" button to display top games by playtime and player count based on the selected platform and genre.
 User can view the top games by playtime in a table that displays the game name and total playtime.
 User can view the top games by player count in a table that displays the game name and number of players.
-Technologies
+
+-Technologies:
+
 React: JavaScript library for building user interfaces.
 Axios: Promise-based HTTP client for the browser and node.js.
 Node.js: JavaScript runtime built on Chrome's V8 JavaScript engine.
 Express: Fast, unopinionated, minimalist web framework for Node.js.
-Setup
+MoongoDB: Document-oriented NoSQL database that uses a flexible data model to store data.
+
+-Setup:
+
 Clone the repository.
-backEnd repository :
-git clone https://github.com/azizmenzli/technicalAssassment.git 
+git clone : https://github.com/azizmenzli/technicalAssassment.git
+inside the technicalAssasment folder you will found two folders backEnd and frontEnd 
+-cd game-app/backEnd 
+-Install the dependencies.
+-npm install
+-npm start to start the server and connect to the database.
 
-
-frontEnd repository :
-git clone https://github.com/azizmenzli/technicalAssassment-frontEnd.git
-
-cd game-app
-Install the dependencies.
-npm install
-Start the server.
-npm start
 Open the application in a web browser.
 
-http://localhost:3000/
-API Endpoints
-GET /top-by-playtime
-Returns the top games by playtime based on the platform and genre selected by the user.
 
-Request Parameters
-Parameter	Type	Required	Description
-platform	string	Yes	The platform to filter the games by (e.g. "PC").
-genre	string	Yes	The genre to filter the games by (e.g. "MOBA").
-Response
+-cd game-app/fontEnd
+-Install the dependencies.
+-npm install
+-npm start to run the react application on : http://localhost:3000/
+
+-API Endpoints:
+
+-POST "/games" to add new game to the database .
+
+-GET "/games/:id" to get one game by id .
+
+-GET "/games" to retrive all the games in the database.
+
+-DELETE "/games/:id" to delete a game from the database.
+
+-PUT "/games/:id" to update a game from the database.
+
+-GET "/top-by-playtime".
+
+Returns the top games by playtime based on the platform and genre selected by the user and then passed as query to the request .
+
+-Request Parameters:
+|Parameter|	Type  |	Required |	Description                                   |
+|---------|-------|----------|------------------------------------------------|
+|platform |string |	Yes      |The platform to filter the games by (e.g. "PC").|
+|genre	  |string |	Yes      |The genre to filter the games by (e.g. "MOBA"). |
+
+-Response:
 The response is an array of objects that represent the top games by playtime.
 
 [  {    "_id": "Game 1",    "totalPlaytime": 1000  },  {    "_id": "Game 2",    "totalPlaytime": 500  },  ...]
-GET /top-by-players
-Returns the top games by player count based on the platform and genre selected by the user.
+
+-GET "/top-by-players".
+
+Returns the top games by player count based on the platform and genre selected by the user and then passed as query to the request.
 
 Request Parameters
-Parameter	Type	Required	Description
-platform	string	Yes	The platform to filter the games by (e.g. "PC").
-genre	string	Yes	The genre to filter the games by (e.g. "MOBA").
-Response
+|Parameter|	Type  |	Required |	Description                                   |
+|---------|-------|----------|------------------------------------------------|
+|platform |string |	Yes      |The platform to filter the games by (e.g. "PC").|
+|genre	  |string |	Yes      |The genre to filter the games by (e.g. "MOBA"). |
+
+-Response:
 The response is an array of objects that represent the top games by player count.
+
 [  {    "game": "Game 1",    "playerCount": 1000  },  {    "game": "Game 2",    "playerCount": 500  },  ...]
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
